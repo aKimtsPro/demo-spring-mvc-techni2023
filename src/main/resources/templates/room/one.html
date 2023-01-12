@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <h1>Details d'une chambre</h1>
+
+    <div th:object="${room}">
+        <p> numéro de la chambre:  <span th:text="*{numRoom}">1</span> </p>
+        <p th:if="*{nbrSimpleBed} > 0"> nombre de lits simples:  <span th:text="*{nbrSimpleBed}">1</span> </p>
+        <p th:if="*{nbrDoubleBed} > 0"> nombre de lits doubles:  <span th:text="*{nbrDoubleBed}">1</span> </p>
+        <p> taille en m²:  <span th:text="*{size}" th:class="*{size} > 20 ? 'red'">20</span> </p>
+    </div>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
