@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Hotel Details</title>
+</head>
+<body>
+<div class="container">
+  <h1>Hotel Details</h1>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Hotel Name : <span th:text="${hotel.name}"></span></h2>
+    </div>
+    <div class="card-body">
+      <p>ID: <span th:text="${hotel.id}"></span></p>
+      <p>Receptionist: <span th:text="${hotel.receptionist}"></span></p>
+      <p>Address: <span th:text="${hotel.address}"></span></p>
+      <p>Stars: <span th:text="${hotel.stars}"></span></p>
+      <h3>Rooms:</h3>
+      <ul>
+        <li th:each="room : ${hotel.rooms}" th:object="${room}">
+          <p th:text="|numéro: *{numRoom},
+                lits simples: *{nbrSimpleBed},
+                lits doubles: *{nbrDoubleBed}|">
+            données sur une chambre
+          </p>
+          <a th:href="@{/room/{num}(num=*{numRoom})}">
+            <button>détails</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <a th:href="@{/hotel/all}">
+    <button class="btn btn-primary">retour à la liste</button>
+  </a>
+</div>
+</body>
+</html>

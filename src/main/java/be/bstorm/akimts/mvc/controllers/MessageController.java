@@ -30,6 +30,4 @@ public class MessageController {
         return "forward:message";
     }
 
-
-
 }

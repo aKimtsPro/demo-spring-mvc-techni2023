@@ -15,10 +15,15 @@ public class RoomService {
     private final List<Room> rooms = new ArrayList<>();
 
     public RoomService() {
-        rooms.add( new Room(1, 1, 0, 20) );
-        rooms.add( new Room(2, 2, 0, 25) );
-        rooms.add( new Room(3, 0, 1, 30) );
-        rooms.add( new Room(15, 1, 1, 30) );
+        rooms.add( new Room(1, 1, 0, 20, null) );
+        rooms.add( new Room(2, 1, 0, 20, null) );
+        rooms.add( new Room(3, 2, 0, 25, null) );
+        rooms.add( new Room(4, 2, 0, 25, null) );
+        rooms.add( new Room(5, 2, 0, 25, null) );
+        rooms.add( new Room(6, 0, 1, 30, null) );
+        rooms.add( new Room(7, 0, 1, 30, null) );
+        rooms.add( new Room(10, 1, 1, 30, null) );
+        rooms.add( new Room(15, 1, 1, 30, null) );
     }
 
     public List<Room> getAll(){

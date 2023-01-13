@@ -13,5 +13,6 @@ public class Room {
     private int nbrSimpleBed;
     private int nbrDoubleBed;
     private int size;
+    private Hotel hotel;
 
 }
