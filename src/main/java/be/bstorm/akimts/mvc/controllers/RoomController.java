@@ -5,12 +5,12 @@ import be.bstorm.akimts.mvc.models.Room;
 import be.bstorm.akimts.mvc.services.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/room")
 public class RoomController {
 
     // 3 conditions à DI:
@@ -26,7 +26,7 @@ public class RoomController {
 
 
     //GET - /room/all -> voir les chambres
-    @GetMapping("/room/all")
+    @GetMapping("/all")
     public String allRooms(Model model){
         List<Room> rooms = roomService.getAll();
 
@@ -37,11 +37,39 @@ public class RoomController {
 
 
     //GET - /room/1   -> voir la chambre num 1
-    @GetMapping("/room/{numRoom}")
+    @GetMapping("/{numRoom}")
     public String oneRoom(Model model, @PathVariable int numRoom){
         model.addAttribute("room", roomService.getOne( numRoom ));
 
         return "room/one";
+    }
+
+    @GetMapping("/add")
+    public String insertForm(Model model){
+        model.addAttribute("room", new Room());
+        return "room/insert";
+    }
+
+    @PostMapping("/add")
+    public String processInsert(Room form){
+        roomService.insert( form );
+        return "redirect:all";
+    }
+
+    @GetMapping("/update/{num}")
+    public String updateForm(Model model, @PathVariable int num){
+        Room toUpdate = roomService.getOne( num );
+
+        model.addAttribute("room", toUpdate);
+
+        return "room/update";
+    }
+    
+    @PostMapping("/update/{num}")
+    public String processUpdate(Room room, @PathVariable int num){
+        roomService.update( num, room );
+
+        return "redirect:/room/all";
     }
 
 }

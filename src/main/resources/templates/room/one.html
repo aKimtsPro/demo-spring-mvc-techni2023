@@ -16,7 +16,7 @@
             <p th:if="*{nbrSimpleBed} > 0"> nombre de lits simples:  <span th:text="*{nbrSimpleBed}">1</span> </p>
             <p th:if="*{nbrDoubleBed} > 0"> nombre de lits doubles:  <span th:text="*{nbrDoubleBed}">1</span> </p>
             <p> taille en m²:  <span th:text="*{size}" th:class="*{size} > 20 ? 'red'">20</span> </p>
-            <p>
+            <p th:if="${ hotel } != null">
                 hotel:  <span th:text="*{hotel.name}">the hotel</span>
                 <a th:href="@{/hotel/{id}(id=*{hotel.id})}">
                     <button class="btn btn-primary">

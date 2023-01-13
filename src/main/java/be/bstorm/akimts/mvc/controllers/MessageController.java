@@ -4,8 +4,11 @@ import be.bstorm.akimts.mvc.patterns.Personne;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class MessageController {
@@ -37,12 +40,32 @@ public class MessageController {
     public String personnes(Model model){
         model.addAttribute("p",
                 List.of(
-                        Personne.builder("paul")
+                        Personne.builder("paul-luc")
                                 .nom("deschamps")
                                 .build()
                 )
         );
         return "personne";
+    }
+
+    @GetMapping("/text/{nbr:[0-9]+}")
+    public String getTexts(Model model, @PathVariable int nbr){
+
+        List<String> mots = new ArrayList<>();
+        Random rdm = new Random();
+
+        for (int i = 0; i < nbr; i++) {
+            StringBuilder sb = new StringBuilder();
+            int taille = rdm.nextInt(5,11);
+            for (int j = 0; j < taille; j++) {
+                sb.append( (char)rdm.nextInt('a', 'z'+1) );
+            }
+            mots.add( sb.toString() );
+        }
+
+        model.addAttribute("mots", mots);
+
+        return "display-mots";
     }
 
 }

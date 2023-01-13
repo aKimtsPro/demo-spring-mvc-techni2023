@@ -9,11 +9,11 @@
 <ul>
     <li
             th:each="personne : ${p}"
+            th:class="${#strings.length( personne.nom ) > 4} ? 'red'"
+            th:if="${#strings.length( personne.prenom ) > 4}"
             th:text="|${personne.prenom} ${personne.nom}|"
-            th:class="${#strings.length( ${personne.nom} )} > 4 ? 'red'"
-            th:if="${#strings.length( ${personne.prenom} )} > 4"
     >
-        <a th:href="@{/pers/{nom}(nom=${personne.nom}, prenom=${personne.prenom})}"></a>
+        <a th:href="@{/pers/{nom}(nom=${personne.nom}, prenom=${personne.prenom})}">lien</a>
     </li>
 </ul>
 
