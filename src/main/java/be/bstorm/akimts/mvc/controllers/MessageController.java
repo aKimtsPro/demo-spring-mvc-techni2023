@@ -1,8 +1,11 @@
 package be.bstorm.akimts.mvc.controllers;
 
+import be.bstorm.akimts.mvc.patterns.Personne;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class MessageController {
@@ -28,6 +31,18 @@ public class MessageController {
     public String forward(){
         System.out.println("on passe par ici!!");
         return "forward:message";
+    }
+
+    @GetMapping("/pers")
+    public String personnes(Model model){
+        model.addAttribute("p",
+                List.of(
+                        Personne.builder("paul")
+                                .nom("deschamps")
+                                .build()
+                )
+        );
+        return "personne";
     }
 
 }

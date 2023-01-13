@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li
+            th:each="personne : ${p}"
+            th:text="|${personne.prenom} ${personne.nom}|"
+            th:class="${#strings.length( ${personne.nom} )} > 4 ? 'red'"
+            th:if="${#strings.length( ${personne.prenom} )} > 4"
+    >
+        <a th:href="@{/pers/{nom}(nom=${personne.nom}, prenom=${personne.prenom})}"></a>
+    </li>
+</ul>
+
+</body>
+</html>
