@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" th:replace="~{layout/layout::layout(_,~{::content},_)}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
-    <form th:action="@{/room/add}" method="post" th:object="${room}">
-        <div>
-            <label for="in-num">numéro:</label><br/>
-            <input type="number" id="in-num" th:field="*{numRoom}">
-        </div>
+    <div th:fragment="content">
+        <h1>Ajouter une chambre</h1>
+        <form th:action="@{/room/add}" method="post" th:object="${room}">
+            <div>
+                <label for="in-num">numéro:</label><br/>
+                <input type="number" id="in-num" th:field="*{numRoom}">
+            </div>
 
-        <div>
-            <label for="in-bed-simple">nombre de lits simples:</label><br/>
-            <input type="number" id="in-bed-simple" th:field="*{nbrSimpleBed}">
-        </div>
+            <div>
+                <label for="in-bed-simple">nombre de lits simples:</label><br/>
+                <input type="number" id="in-bed-simple" th:field="*{nbrSimpleBed}">
+            </div>
 
-        <div>
-            <label for="in-bed-double">nombre de lits doubles:</label><br/>
-            <input type="number" id="in-bed-double" th:field="*{nbrDoubleBed}">
-        </div>
+            <div>
+                <label for="in-bed-double">nombre de lits doubles:</label><br/>
+                <input type="number" id="in-bed-double" th:field="*{nbrDoubleBed}">
+            </div>
 
-        <div>
-            <label for="in-size">taille:</label><br/>
-            <input type="number" id="in-size" th:field="*{size}">
-        </div>
+            <div>
+                <label for="in-size">taille:</label><br/>
+                <input type="number" id="in-size" th:field="*{size}">
+            </div>
 
-        <button type="submit">envoyer</button>
-    </form>
+            <button type="submit">envoyer</button>
+        </form>
+    </div>
 
 </body>
 </html>

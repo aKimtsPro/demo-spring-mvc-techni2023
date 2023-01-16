@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" th:replace="~{layout/layout::layout(_,~{::content},_)}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" th:fragment="content">
         <h1>Details d'une chambre</h1>
 
         <div th:object="${room}">
@@ -23,7 +23,6 @@
                         détails
                     </button>
                 </a>
-
             </p>
         </div>
     </div>

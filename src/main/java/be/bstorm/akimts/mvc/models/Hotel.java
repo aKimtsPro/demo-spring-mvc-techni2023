@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 @Builder
 public class Hotel {
-
     private long id;
     private int stars;
     private String receptionist;

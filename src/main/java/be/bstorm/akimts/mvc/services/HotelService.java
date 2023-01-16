@@ -1,6 +1,7 @@
 package be.bstorm.akimts.mvc.services;
 
 import be.bstorm.akimts.mvc.models.Hotel;
+import be.bstorm.akimts.mvc.models.HotelForm;
 import be.bstorm.akimts.mvc.models.Room;
 import org.springframework.stereotype.Service;
 
@@ -74,5 +75,17 @@ public class HotelService {
                 .filter( h -> h.getId() == id )
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("hotel introuvable"));
+    }
+
+    public void create(HotelForm form){
+        list.add(
+                Hotel.builder()
+                        .id(form.getId())
+                        .stars(form.getStars())
+                        .receptionist(form.getReceptionist())
+                        .address(form.getAddress())
+                        .name(form.getName())
+                        .build()
+        );
     }
 }

@@ -1,17 +1,29 @@
 package be.bstorm.akimts.mvc.controllers;
 
+import be.bstorm.akimts.mvc.models.CalculatriceForm;
 import be.bstorm.akimts.mvc.patterns.Personne;
+import be.bstorm.akimts.mvc.services.CalculatriceService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @Controller
 public class MessageController {
+
+    private final CalculatriceService calculatriceService;
+
+    public MessageController(CalculatriceService calculatriceService) {
+        this.calculatriceService = calculatriceService;
+    }
 
     // GET - http://localhost:8080/message
     @GetMapping("/message")
@@ -67,5 +79,31 @@ public class MessageController {
 
         return "display-mots";
     }
+
+    @GetMapping("/calc")
+    public String displayCalc(Model model){
+        model.addAttribute("form", new CalculatriceForm());
+        return "calc/form";
+    }
+
+    @PostMapping("/calc")
+    public String processCalc(Model model, CalculatriceForm form){
+        model.addAttribute("rslt", calculatriceService.calc(form));
+        return "calc/result";
+    }
+
+//    @PostMapping("/calc")
+//    public String showParams(@RequestParam Map<String,String> params){
+//        for (String s : params.keySet()) {
+//            System.out.println(s + " : " + params.get(s));
+//        }
+//        return "index";
+//    }
+//
+//    @PostMapping("/calc")
+//    public String showParams(@RequestParam("operator") char op){
+//        System.out.println( op );
+//        return "index";
+//    }
 
 }

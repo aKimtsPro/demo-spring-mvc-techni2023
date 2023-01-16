@@ -4,3 +4,7 @@ server:
 spring:
   banner:
     location: banner.txt
+
+  devtools:
+    livereload:
+      enabled: true

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" th:replace="~{layout/layout :: layout(_,~{::content},_)}">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter hotel</title>
+</head>
+<body>
+
+<div th:fragment="content">
+
+    <h1>Ajouter un hotel</h1>
+
+    <form th:action="@{/hotel/add}" th:object="${form}" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="id" class="control-label col-sm-2">Hotel ID:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{id}" id="id" placeholder="Enter hotel ID">
+                <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="control-label col-sm-2">Hotel Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Enter hotel name">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="stars" class="control-label col-sm-2">Stars:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{stars}" id="stars" placeholder="Enter the number of stars">
+                <span th:if="${#fields.hasErrors('stars')}" th:errors="*{stars}" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="control-label col-sm-2">Address:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{address}" id="address" placeholder="Enter the address of the hotel">
+                <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="receptionist" class="control-label col-sm-2">Receptionist Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{receptionist}" id="receptionist" placeholder="Enter the name of the receptionist">
+                <span th:if="${#fields.hasErrors('receptionist')}" th:errors="*{receptionist}" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Create Hotel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+</body>
+</html>

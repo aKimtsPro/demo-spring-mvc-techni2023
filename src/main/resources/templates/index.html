@@ -1,11 +1,22 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" th:replace="~{layout/layout::layout(_,~{::content},_)}">
 <head>
     <title>Accueil</title>
 </head>
 <body>
 
-    <h1>Hello World!</h1>
+    <div th:fragment="content">
+        <h1>Hello World!</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et explicabo illum nostrum numquam voluptatem!
+            Accusamus dicta dolore dolores exercitationem minima molestias, natus provident quod soluta voluptate!
+            Aliquam, amet consequuntur, eaque eius error eveniet id illum impedit laborum magni molestias mollitia
+            nesciunt odit officia ratione rerum tenetur unde veritatis. Est, repudiandae.
+        </p>
+        :)
+    </div>
+
 
 </body>
 </html>

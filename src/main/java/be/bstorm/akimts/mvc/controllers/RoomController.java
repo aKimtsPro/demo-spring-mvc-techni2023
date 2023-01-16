@@ -1,6 +1,7 @@
 package be.bstorm.akimts.mvc.controllers;
 
 
+import be.bstorm.akimts.mvc.models.Hotel;
 import be.bstorm.akimts.mvc.models.Room;
 import be.bstorm.akimts.mvc.services.RoomService;
 import org.springframework.stereotype.Controller;
@@ -8,9 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
-@RequestMapping("/room")
+@RequestMapping(value = "/room")
 public class RoomController {
 
     // 3 conditions à DI:
@@ -55,6 +57,7 @@ public class RoomController {
         roomService.insert( form );
         return "redirect:all";
     }
+
 
     @GetMapping("/update/{num}")
     public String updateForm(Model model, @PathVariable int num){
