@@ -27,4 +27,5 @@ public class ReservationRepositoryImpl
     public Set<Reservation> getFromMonth(Month month) {
         return null;
     }
+
 }

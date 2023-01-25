@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr" th:replace="~{layout/layout::layout(_,~{::content},_)}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container" th:fragment="content">
+
+    <ul th:object="${pers}">
+        <li th:text="*{nom}"></li>
+        <li th:text="*{prenom}"></li>
+        <li th:text="*{dateNaiss}"></li>
+    </ul>
+
+</div>
+
+
+</body>
+</html>
