@@ -3,7 +3,6 @@ package be.bstorm.akimts.mvc.controllers;
 import be.bstorm.akimts.mvc.models.HotelForm;
 import be.bstorm.akimts.mvc.services.HotelService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +25,7 @@ public class HotelController {
     }
 
 
+    // GET - http://localhost:8080/hotel/1
     @GetMapping("/{id:[0-9]+}")
     public String displayOne(Model model, @PathVariable long id){
         model.addAttribute("hotel", hotelService.getById(id));
@@ -39,11 +39,11 @@ public class HotelController {
 
     @PostMapping("/add")
     public String processInsert(@ModelAttribute("form") @Valid HotelForm form, BindingResult bindingResult){
-        if( bindingResult.hasErrors() )
+        if( bindingResult.hasErrors() ) {
             return "hotel/insert";
+        }
 
         hotelService.create(form);
-
         return "redirect:all";
     }
 

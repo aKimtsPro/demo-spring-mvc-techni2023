@@ -1,15 +1,14 @@
 package be.bstorm.akimts.mvc.controllers;
 
 import be.bstorm.akimts.mvc.models.CalculatriceForm;
+import be.bstorm.akimts.mvc.models.PersonneForm;
 import be.bstorm.akimts.mvc.patterns.Personne;
 import be.bstorm.akimts.mvc.services.CalculatriceService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,5 +104,22 @@ public class MessageController {
 //        System.out.println( op );
 //        return "index";
 //    }
+
+    @GetMapping("/pers/add")
+    public String personneForm(@ModelAttribute("pers")PersonneForm f){
+        return "personne/add";
+    }
+
+    @PostMapping("/pers/add")
+    public String personneForm(@ModelAttribute("pers") @Valid PersonneForm f, BindingResult bindingResult){
+        if( bindingResult.hasErrors() )
+            return "personne/add";
+
+        System.out.println( f.getNom() );
+        System.out.println( f.getPrenom() );
+        System.out.println( f.getDateNaiss() );
+
+        return "personne/personne-view";
+    }
 
 }

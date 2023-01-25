@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr" th:replace="~{layout/layout::layout(_,~{::content},_)}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="container" th:fragment="content">
+
+        <form th:action="@{ /pers/add }" method="post" th:object="${pers}">
+
+            <div class="mb-3">
+                <label class="form-label">nom</label>
+                <input type="text" class="form-control" th:field="*{nom}">
+                <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">prenom</label>
+                <input type="text" class="form-control" th:field="*{prenom}">
+                <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">date de naissance</label>
+                <input type="date" class="form-control" th:field="*{dateNaiss}">
+                <span th:if="${#fields.hasErrors('dateNaiss')}" th:errors="*{dateNaiss}"></span>
+            </div>
+
+            <button class="btn btn-primary">envoyer</button>
+
+        </form>
+
+    </div>
+
+
+</body>
+</html>
