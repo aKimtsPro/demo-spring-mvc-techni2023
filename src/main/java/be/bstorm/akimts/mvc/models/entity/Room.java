@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -49,6 +50,6 @@ public class Room {
     private RoomType type;
 
     @OneToMany(mappedBy = "room")
-    private Set<Reservation> reservations;
+    private Set<Reservation> reservations = new LinkedHashSet<>();
 
 }

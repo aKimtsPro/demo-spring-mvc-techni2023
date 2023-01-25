@@ -15,16 +15,16 @@ public class Reservation {
     @Column(name = "reservation_id", nullable = false)
     private Long id;
 
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "cancelled_at", nullable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "cancelled_at")
     private LocalDateTime cancelledAt;
 
     @Column(name = "additional_beds", nullable = false)
-    private int additionalBeds = 0;
+    private int additionalBeds;
 
     @Column(nullable = false)
     private double price;
@@ -35,15 +35,15 @@ public class Reservation {
     private boolean breakfastIncluded;
 
     @Column(name = "reservation_start", nullable = false)
-    private LocalDate start;
-    @Column(name = "reservation_end")
-    private LocalDate end;
+    private LocalDateTime start;
+    @Column(name = "reservation_end", nullable = false)
+    private LocalDateTime end;
 
-    @ManyToOne(optional = false)
+    @ManyToOne//(optional = false)
     @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
-    @ManyToOne(optional = false)
+    @ManyToOne//(optional = false)
     @JoinColumn(name = "customer_id", nullable = false)
     private User user;
 

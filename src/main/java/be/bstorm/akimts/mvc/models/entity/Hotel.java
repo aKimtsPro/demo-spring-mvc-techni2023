@@ -3,6 +3,7 @@ package be.bstorm.akimts.mvc.models.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,7 @@ public class Hotel {
     private Set<WorkDetail> workDetails;
 
     @OneToOne
-    @JoinColumn(name = "receptionist_id")
+    @JoinColumn(name = "receptionist_id", unique = true)
     private Employee receptionist;
 
     @Column(nullable = false)
@@ -31,6 +32,6 @@ public class Hotel {
     private String address;
 
     @OneToMany(mappedBy = "hotel")
-    private Set<Room> rooms;
+    private Set<Room> rooms = new LinkedHashSet<>();
 
 }

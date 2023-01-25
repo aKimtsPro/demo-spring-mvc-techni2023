@@ -22,10 +22,10 @@ public class WorkDetail {
     @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
 
-    @JoinColumn(name = "date_start", nullable = false)
+    @JoinColumn(name = "datestart", nullable = false)
     private LocalDate dateStart;
 
-    @JoinColumn(name = "date_end")
+    @JoinColumn(name = "dateend")
     private LocalDate dateEnd;
 
 }

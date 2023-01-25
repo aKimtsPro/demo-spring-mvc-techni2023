@@ -19,6 +19,4 @@ public class Employee extends Person {
     @OneToMany(mappedBy = "employee")
     private Set<WorkDetail> workDetails;
 
-
-
 }
