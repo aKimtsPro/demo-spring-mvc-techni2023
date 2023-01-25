@@ -1,7 +1,7 @@
 package be.bstorm.akimts.mvc.controllers;
 
-import be.bstorm.akimts.mvc.models.CalculatriceForm;
-import be.bstorm.akimts.mvc.models.PersonneForm;
+import be.bstorm.akimts.mvc.models.form.CalculatriceForm;
+import be.bstorm.akimts.mvc.models.form.PersonneForm;
 import be.bstorm.akimts.mvc.patterns.Personne;
 import be.bstorm.akimts.mvc.services.CalculatriceService;
 import jakarta.validation.Valid;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 @Controller

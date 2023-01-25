@@ -1,6 +1,6 @@
 package be.bstorm.akimts.mvc.controllers;
 
-import be.bstorm.akimts.mvc.models.HotelForm;
+import be.bstorm.akimts.mvc.models.form.HotelForm;
 import be.bstorm.akimts.mvc.services.HotelService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

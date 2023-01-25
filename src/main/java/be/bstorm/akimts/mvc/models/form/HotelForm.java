@@ -1,4 +1,4 @@
-package be.bstorm.akimts.mvc.models;
+package be.bstorm.akimts.mvc.models.form;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class HotelForm {
 
-    @PositiveOrZero
+    @PositiveOrZero(message = "mon petit message d'erreur custom")
     @NotNull
     private Long id;
 

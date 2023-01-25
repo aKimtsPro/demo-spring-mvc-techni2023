@@ -1,4 +1,4 @@
-package be.bstorm.akimts.mvc.models;
+package be.bstorm.akimts.mvc.models.form;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
