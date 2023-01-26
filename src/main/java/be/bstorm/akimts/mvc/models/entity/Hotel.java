@@ -13,7 +13,7 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "hotel_id", nullable = false)
-    private Long id;
+    private long id;
 
     @Column(name= "stars",scale = 1)
     private int stars;
@@ -33,5 +33,6 @@ public class Hotel {
 
     @OneToMany(mappedBy = "hotel")
     private Set<Room> rooms = new LinkedHashSet<>();
+
 
 }

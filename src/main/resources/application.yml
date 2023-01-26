@@ -6,5 +6,5 @@ spring:
     location: banner.txt
 
   devtools:
-    livereload:
-      enabled: true
+    restart:
+      enabled: false

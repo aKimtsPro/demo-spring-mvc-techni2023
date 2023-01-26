@@ -3,12 +3,14 @@ package be.bstorm.akimts.mvc.models.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter
+@ToString
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +22,7 @@ public class Reservation {
     private LocalDateTime createdAt;
 
 //    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "cancelled_at")
+    @Column(name = "cancelled_at", nullable = true)
     private LocalDateTime cancelledAt;
 
     @Column(name = "additional_beds", nullable = false)
