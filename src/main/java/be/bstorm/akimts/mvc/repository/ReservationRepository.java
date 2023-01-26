@@ -5,7 +5,6 @@ import be.bstorm.akimts.mvc.models.entity.Reservation;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
-import java.util.Set;
 
 public interface ReservationRepository extends CrudRepository<Reservation, Long> {
 
@@ -19,10 +18,11 @@ public interface ReservationRepository extends CrudRepository<Reservation, Long>
 
     /**
      * Gets the number of breakfast that should be prepared for a day
+     *
      * @param date
      * @return the number of breakfast
      */
-    int getBreakfastNeededForDay(LocalDate date);
+    long getBreakfastNeededForDay(LocalDate date);
     /**
      * Gets the reservations that begin in the future
      * @return a Set of reservation

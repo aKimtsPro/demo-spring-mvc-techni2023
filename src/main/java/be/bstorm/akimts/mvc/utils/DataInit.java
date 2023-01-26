@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
 
-@Component
+//@Component
 public class DataInit implements InitializingBean {
 
     private final EntityManager manager;
@@ -65,7 +65,7 @@ public class DataInit implements InitializingBean {
 
         Reservation reservation = new Reservation();
 
-        reservation.setId(1L);
+//        reservation.setId(1L);
         reservation.setStart(LocalDateTime.of(2023, 10, 29,12,0,0));
         reservation.setEnd(LocalDateTime.of(2023, 11, 02,12,0,0));
         reservation.setRoom(room);
